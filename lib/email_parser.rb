@@ -10,7 +10,7 @@ class EmailAddressParser
     end
     def parse
         # arr= self.str.gsub(" ", ", ").split(/[,] /).delete(",")
-        arr=self.str.split(/, |\s/)
+        arr=self.str.scan(/\b\w+@\w+\.\w+\b/)
         arr.uniq
     end
 end
