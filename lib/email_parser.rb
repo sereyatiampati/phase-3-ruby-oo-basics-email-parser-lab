@@ -4,13 +4,14 @@
 # or whitespace (' ').
 require 'pry'
 class EmailAddressParser
-    attr_reader :str
+    attr_accessor :str
     def initialize(str)
         @str=str
     end
     def parse
-        arr= self.str.gsub(" ", ", ").split(/[,] /).delete(",")
-        arr
+        # arr= self.str.gsub(" ", ", ").split(/[,] /).delete(",")
+        arr=self.str.split(/, |\s/)
+        arr.uniq
     end
 end
 # binding.pry
